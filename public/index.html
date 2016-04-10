@@ -7,6 +7,7 @@
 	<!-- Custom Angular files -->
 	<script src="/browser/app/main.js" defer></script>
 	<script src="/browser/app/salespeople/controller.js" defer></script>
+	<script src="/browser/app/salespeople/factory.js" defer></script>
 </head>
 <body ng-app="NW">
 	<h3 class="well">Northwind Sales Team</h3>
@@ -16,7 +17,7 @@
 			<div class="form-group">
 				<label class="control-label col-xs-2">Name:</label>
 				<div class="col-xs-10">
-					<input name="name">
+					<input name="name" ng-model="name">
 				</div>
 			</div>
 			<div class="form-group" >
@@ -30,10 +31,14 @@
 			</div>
 			<div class="form-group">
 				<div class="col-xs-offset-3">
-					<button  type="submit" class="btn btn-default">Save</button>
+					<button  type="submit" class="btn btn-default" ng-click="addSP()">Save</button>
 				</div>
 			</div>
 		</form>
+		<div ng-repeat="salesperson in salespeople">
+			<p>I am {{salesperson.name}}</p>
+		</div>
 	</div>
+	
 </body>
 </html>

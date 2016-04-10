@@ -18,8 +18,8 @@ router.get('/api/salespeople', function(req, res){
 	});
 });
 
-router.get('/api/salespeople/add', function(req, res){
-	var newSP = new Salesperson({name: 'Tom'})
+router.post('/api/salespeople/add/:spName', function(req, res){
+	var newSP = new Salesperson({name: req.params.spName})
 	newSP.save()
 	.then(function(response){
 		//console.log(response);
