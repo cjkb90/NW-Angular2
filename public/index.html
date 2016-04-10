@@ -22,11 +22,11 @@
 			</div>
 			<div class="form-group" >
 				<label class="control-label col-xs-2">Region:</label>
-				<div class="col-xs-10">
-					<div>North</div>
-					<div>South</div>
-					<div>East</div>
-					<div>West</div>
+				<div class="col-xs-6">
+					<div class="col-xs-3" ng-click="regionToggle('north')" ng-class="{well: north}">North</div>
+					<div class="col-xs-3" ng-click="regionToggle('south')" ng-class="{well: south}">South</div>
+					<div class="col-xs-3" ng-click="regionToggle('east')" ng-class="{well: east}">East</div>
+					<div class="col-xs-3" ng-click="regionToggle('west')" ng-class="{well: west}">West</div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -35,8 +35,13 @@
 				</div>
 			</div>
 		</form>
-		<div ng-repeat="salesperson in salespeople">
-			<p ng-click="delete()">I am {{salesperson.name}}</p>
+		<div ng-repeat="salesperson in salespeople" class="well col-xs-4">
+			<p class="col-xs-10">{{salesperson.name}}</p>
+			<button ng-click="delete()" class="btn btn-danger col-xs-2">x</button>
+			<div ng-click="regionToggle('north')" class="col-xs-2">North</div>
+			<div ng-click="regionToggle('south')" class="col-xs-2">South</div>
+			<div ng-click="regionToggle('east')" class="col-xs-2">East</div>
+			<div ng-click="regionToggle('west')" class="col-xs-2">West</div>
 		</div>
 	</div>
 	
