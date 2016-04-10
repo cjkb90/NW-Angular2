@@ -14,7 +14,6 @@ router.get('/api/salespeople', function(req, res){
 	Salesperson.find()
 	.then(function(data){
 		res.send(data);
-		//console.log(data);
 	});
 });
 
@@ -22,12 +21,22 @@ router.get('/api/salespeople/find/:id', function(req, res){
 	return Salesperson.findById(req.params.id)
 	.then(function(data){
 		res.send(data);
-		//console.log(data);
+	});
+});
+
+router.put('/api/salespeople/find/:id', function(req, res){
+	return Salesperson.findById(req.params.id)
+	.then(function(data){
+		console.log('data is',data)
+		data.region=req.body.region;
+		console.log('body is',req.body);
+		res.sendStatus(200);
+		return Salesperson.save();
 	});
 });
 
 router.post('/api/salespeople/add/:spName', function(req, res){
-	var newSP = new Salesperson({name: req.params.spName})
+	var newSP = new Salesperson({name: req.params.spName, regions: req.body})
 	newSP.save()
 	.then(function(response){
 		res.send(response);

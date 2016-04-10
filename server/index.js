@@ -5,7 +5,7 @@ db.on('error', console.error.bind(console, 'mongodb connection error:'));
 
 var salespersonSchema = new mongoose.Schema({
 	name: {type: String, required: true},
-	region: [String]
+	regions: [String]
 });
 
 var Salesperson = mongoose.model('Salesperson', salespersonSchema);
