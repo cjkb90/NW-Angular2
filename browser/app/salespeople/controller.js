@@ -2,7 +2,7 @@
 
 app.controller('SPCtrl', function($scope, $http, SPFactory){
 	$scope.addSP = function(){
-		$http.post('/api/salespeople/add/'+$scope.name)
+		SPFactory.addSP($scope.name)
 		.then(function(){
 			$scope.name = ""
 		});
@@ -12,4 +12,8 @@ app.controller('SPCtrl', function($scope, $http, SPFactory){
 	.then(function(salespeople){
 		$scope.salespeople = salespeople;
 	});
+
+	$scope.delete = function(){
+		SPFactory.deleteById(this.salesperson._id)
+	}
 });

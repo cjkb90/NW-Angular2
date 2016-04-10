@@ -36,7 +36,7 @@
 			</div>
 		</form>
 		<div ng-repeat="salesperson in salespeople">
-			<p>I am {{salesperson.name}}</p>
+			<p ng-click="delete()">I am {{salesperson.name}}</p>
 		</div>
 	</div>
 	

@@ -10,5 +10,13 @@ app.factory('SPFactory', function($http){
 		})
 	}
 
+	SPFactory.addSP = function(name){
+		return $http.post('/api/salespeople/add/'+name)
+	}
+
+	SPFactory.deleteById = function(id){
+		$http.delete('/api/salespeople/delete/'+id)
+	}
+
 	return SPFactory;
 });

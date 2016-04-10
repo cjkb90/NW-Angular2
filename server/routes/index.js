@@ -22,8 +22,16 @@ router.post('/api/salespeople/add/:spName', function(req, res){
 	var newSP = new Salesperson({name: req.params.spName})
 	newSP.save()
 	.then(function(response){
-		//console.log(response);
 		res.send(response);
+	})
+});
+
+router.delete('/api/salespeople/delete/:id', function(req, res){
+	Salesperson.find({_id: req.params.id})
+	.remove()
+	.exec()
+	.catch(function(err){
+		console.log(err);
 	})
 });
 
