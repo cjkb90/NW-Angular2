@@ -4,10 +4,13 @@
 	<title>NW-Angular 2</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js" defer></script>
+	<!-- Custom Angular files -->
+	<script src="/browser/app/main.js" defer></script>
+	<script src="/browser/app/salespeople/controller.js" defer></script>
 </head>
-<body>
+<body ng-app="NW">
 	<h3 class="well">Northwind Sales Team</h3>
-	<div>
+	<div ng-controller="SPCtrl">
 		<h4>New Salesperson</h4>
 		<form class="form-horizontal">
 			<div class="form-group">

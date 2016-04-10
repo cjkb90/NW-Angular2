@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+var db = require('../index.js');
+var Salesperson = db.Salesperson;
 
 var indexHtml = path.join(__dirname, '..', '..', 'public', 'index.html');
 
@@ -8,8 +10,21 @@ router.get('/', function(req,res){
 	res.sendFile(indexHtml);
 });
 
-router.get('/printme/:printString', function(req,res){
-	res.send(req.params.printString);
+router.get('/api/salespeople', function(req, res){
+	Salesperson.find()
+	.then(function(data){
+		res.send(data);
+		//console.log(data);
+	});
+});
+
+router.get('/api/salespeople/add', function(req, res){
+	var newSP = new Salesperson({name: 'Tom'})
+	newSP.save()
+	.then(function(response){
+		//console.log(response);
+		res.send(response);
+	})
 });
 
 module.exports = router;

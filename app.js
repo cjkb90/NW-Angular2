@@ -1,10 +1,9 @@
 var express = require('express');
 var app = express();
-var db = require('./server/index.js');
-var Salesperson = db.Salesperson;
 var routes = require('./server/routes/index.js');
 var path = require('path');
 
+app.use('/browser', express.static(path.join(__dirname, '/browser')));
 app.use('/static', express.static(path.join(__dirname, '/public')));
 app.use(routes);
 
