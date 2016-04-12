@@ -44,9 +44,10 @@ app.controller('SPCtrl', function($scope, $http, SPFactory, $log){
 
 	$scope.regionToggle = function(region, salesperson){
 		if (salesperson){
-			SPFactory.toggleRegion(salesperson, region);
-      console.log(salesperson);
-      return;
+			SPFactory.toggleRegion(salesperson, region)
+        .then(function(){
+          getSalespeople();
+        });
 		}
 		else {
 			$scope[region] = !$scope[region];

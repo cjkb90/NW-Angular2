@@ -25,7 +25,10 @@ app.factory('SPFactory', function($http, $log){
       salesperson.regions.splice(salesperson.regions.indexOf(region), 1);
 
     //TODO - update the salesperson on the server
-			//$http.put('/api/salespeople/find/'+salesperson._id, data);
+	  return $http.put('/api/salespeople/find/'+salesperson._id, salesperson)
+      .then(function(result){
+        return result.data;
+      });
 	}
 
 	return SPFactory;

@@ -24,15 +24,19 @@ router.get('/api/salespeople/find/:id', function(req, res){
 	});
 });
 
-router.put('/api/salespeople/find/:id', function(req, res){
-	return Salesperson.findById(req.params.id)
-	.then(function(data){
-		console.log('data is',data)
-		data.region=req.body.region;
-		console.log('body is',req.body);
-		res.sendStatus(200);
-		return Salesperson.save();
-	});
+router.put('/api/salespeople/find/:id', function(req, res, next){
+  Salesperson.findById(req.params.id)
+    .then(function(salesperson){
+      salesperson.regions = req.body.regions;
+      salesperson.save()
+        .then(function(salesperson){
+          res.send(salesperson);
+        });
+    })
+    .catch(function(err){
+      console.log(err);
+    
+    });
 });
 
 router.post('/api/salespeople/add/:spName', function(req, res){
