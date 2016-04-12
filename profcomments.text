@@ -1,0 +1,5 @@
+- good effort
+- review the code changes carefully
+- I think you still have confusion about how mongo works
+- You are calling methods on Model, when you need to call them on instance
+- Pass back your objects when looping over them.. I see you used this.salesperson(maybe it worked-- I wouldn't do it--- pass it explicitly)
