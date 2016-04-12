@@ -37,11 +37,11 @@
 		</form>
 		<div ng-repeat="salesperson in salespeople" class="well col-xs-4">
 			<p class="col-xs-10">{{salesperson.name}}</p>
-			<button ng-click="delete()" class="btn btn-danger col-xs-2">x</button>
-			<div ng-click="regionToggle('north')" ng-class="{well:{{salesperson.regions.indexOf('north')>-1}}}" class="col-xs-2">North</div>
-			<div ng-click="regionToggle('south')" ng-class="{well:{{salesperson.regions.indexOf('south')>-1}}}" class="col-xs-2">South</div>
-			<div ng-click="regionToggle('east')" ng-class="{well:{{salesperson.regions.indexOf('east')>-1}}}" class="col-xs-2">East</div>
-			<div ng-click="regionToggle('west')" ng-class="{well:{{salesperson.regions.indexOf('west')>-1}}}" class="col-xs-2">West</div>
+			<button ng-click="delete(salesperson)" class="btn btn-danger col-xs-2">x</button>
+			<div ng-click="regionToggle('north', salesperson)" ng-class="{well:{{salesperson.regions.indexOf('north')>-1}}}" class="col-xs-2">North</div>
+			<div ng-click="regionToggle('south', salesperson)" ng-class="{well:{{salesperson.regions.indexOf('south')>-1}}}" class="col-xs-2">South</div>
+			<div ng-click="regionToggle('east', salesperson)" ng-class="{well:{{salesperson.regions.indexOf('east')>-1}}}" class="col-xs-2">East</div>
+			<div ng-click="regionToggle('west', salesperson)" ng-class="{well:{{salesperson.regions.indexOf('west')>-1}}}" class="col-xs-2">West</div>
 		</div>
 	</div>
 	
